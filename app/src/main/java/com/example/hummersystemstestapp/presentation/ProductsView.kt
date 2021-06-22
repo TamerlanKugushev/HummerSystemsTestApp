@@ -5,6 +5,6 @@ import com.example.hummersystemstestapp.utils.BaseView
 
 interface ProductsView:BaseView {
 
-    fun updateProducts(tasks: List<ProductResponse>)
+    fun updateProducts(products: List<ProductResponse>)
 
 }

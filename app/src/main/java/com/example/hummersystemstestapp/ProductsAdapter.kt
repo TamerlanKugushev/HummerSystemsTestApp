@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.android.synthetic.main.item_food.view.*
 
 class ProductsAdapter :
     ListAdapter<ProductResponse, ProductsAdapter.CatalogViewHolder>(CatalogDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
         return CatalogViewHolder(view)
     }
 

@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hummersystemstestapp.BannerItem
 import com.example.hummersystemstestapp.ProductsAdapter
 import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.example.hummersystemstestapp.utils.BaseFragment
 import com.example.hummersystemstestapp.utils.PresentersStorage
-import kotlinx.android.synthetic.main.content_scrolling.*
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
@@ -79,6 +79,5 @@ class ProductsFragment : BaseFragment(), ProductsView {
             R.layout.spinner_item
         )
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerProducts.adapter = spinnerAdapter
     }
 }
