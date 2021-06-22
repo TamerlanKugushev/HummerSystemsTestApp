@@ -1,7 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -12,92 +14,145 @@
         android:orientation="horizontal"
         android:paddingBottom="15dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp" />
+        <Spinner
+            android:id="@+id/spinnerProducts"
+            android:layout_width="59dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="285dp"
+            android:entries="@array/cities" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/text_city"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_group" />
 
     </LinearLayout>
 
 
-    <HorizontalScrollView
-        android:id="@+id/scrollView"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:background="#FFFFFF"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:orientation="horizontal"
-            android:paddingTop="10dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                >
 
-            <Button
-                android:layout_width="88dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/btn_pizza"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                app:backgroundTint="@color/white" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
 
-            <Button
-                android:layout_width="88dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/btn_combo"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                app:backgroundTint="@color/white" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/banner"
+                            />
 
-            <Button
-                android:layout_width="88dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/btn_deserts"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                app:backgroundTint="@color/white" />
+                    </LinearLayout>
 
-            <Button
-                android:layout_width="88dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="10dp"
-                android:text="@string/btn_drinks"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                app:backgroundTint="@color/white" />
+                    <HorizontalScrollView
+                        android:id="@+id/scrollView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:scrollbars="none">
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFFF"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp">
+
+                            <Button
+                                android:layout_width="88dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/btn_pizza"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:backgroundTint="@color/white" />
+
+                            <Button
+                                android:layout_width="88dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/btn_combo"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:backgroundTint="@color/white" />
+
+                            <Button
+                                android:layout_width="88dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/btn_deserts"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:backgroundTint="@color/white" />
+
+                            <Button
+                                android:layout_width="88dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/btn_drinks"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:backgroundTint="@color/white" />
+
+                            <Button
+                                android:layout_width="88dp"
+                                android:layout_height="32dp"
+                                android:layout_marginStart="10dp"
+                                android:text="@string/btn_burgers"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                app:backgroundTint="@color/white" />
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <include layout="@layout/content_scrolling" />
         </LinearLayout>
 
-    </HorizontalScrollView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="125dp"
-        android:background="@color/white"
-        android:scrollbars="none" />
 
 
-</RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+
+
+
+</LinearLayout>
 
 

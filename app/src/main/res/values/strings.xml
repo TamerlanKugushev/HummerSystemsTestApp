@@ -8,6 +8,15 @@
     <string name="btn_combo">Комбо</string>
     <string name="btn_deserts">Десерты</string>
     <string name="btn_drinks">Напитки</string>
+    <string name="btn_burgers">Бургеры</string>
     <string name="btn_price">от 345 р</string>
+
+
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Санкт-Петербург</item>
+        <item>Казань</item>
+        <item>Новосибирск</item>
+    </string-array>
 
 </resources>
