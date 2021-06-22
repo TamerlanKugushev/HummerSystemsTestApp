@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HummerSystemsTestApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="text_city">Москва</string>
+    <string name="btn_pizza">Пицца</string>
+    <string name="btn_combo">Комбо</string>
+    <string name="btn_deserts">Десерты</string>
+    <string name="btn_drinks">Напитки</string>
+    <string name="btn_price">от 345 р</string>
+
+</resources>
