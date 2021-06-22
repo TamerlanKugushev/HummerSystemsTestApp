@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hummersystemstestapp.BannerItem
-import com.example.hummersystemstestapp.ProductsAdapter
+import com.example.hummersystemstestapp.adapters.ProductsAdapter
 import com.example.hummersystemstestapp.R
+import com.example.hummersystemstestapp.adapters.BannersAdapters
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.example.hummersystemstestapp.utils.BaseFragment
 import com.example.hummersystemstestapp.utils.PresentersStorage
@@ -24,6 +24,7 @@ class ProductsFragment : BaseFragment(), ProductsView {
     }
 
     private lateinit var productsAdapter: ProductsAdapter
+    private lateinit var bannersAdapters: BannersAdapters
     private lateinit var presenter: ProductsPresenter
 
     override fun onCreateView(
@@ -37,9 +38,20 @@ class ProductsFragment : BaseFragment(), ProductsView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         productsAdapter = ProductsAdapter()
+        bannersAdapters = BannersAdapters()
         productsRecyclerView.setHasFixedSize(true)
         productsRecyclerView.adapter = productsAdapter
-        productsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        bannersRecyclerView.setHasFixedSize(true)
+        bannersRecyclerView.adapter = bannersAdapters
+        val banners = listOf(
+            BannerItem(R.drawable.banner),
+            BannerItem(R.drawable.banner),
+            BannerItem(R.drawable.banner),
+            BannerItem(R.drawable.banner),
+            BannerItem(R.drawable.banner)
+        )
+        bannersAdapters.setData(banners)
+
 
         initSpinner()
     }

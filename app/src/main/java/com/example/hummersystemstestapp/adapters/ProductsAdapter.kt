@@ -1,4 +1,4 @@
-package com.example.hummersystemstestapp
+package com.example.hummersystemstestapp.adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_food.view.*
 
-class ProductsAdapter :
-    ListAdapter<ProductResponse, ProductsAdapter.CatalogViewHolder>(CatalogDiffUtilCallback()) {
+class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogViewHolder>(
+    CatalogDiffUtilCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)

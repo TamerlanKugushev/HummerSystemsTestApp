@@ -10,6 +10,9 @@
     <string name="btn_drinks">Напитки</string>
     <string name="btn_burgers">Бургеры</string>
     <string name="btn_price">от 345 р</string>
+    <string name="menu">Меню</string>
+    <string name="profile">Профиль</string>
+    <string name="basket">Корзина</string>
 
 
     <string-array name="cities">

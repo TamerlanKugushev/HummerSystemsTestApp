@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import kotlinx.android.synthetic.main.toolbar_menu.*
 
 class MainActivity : AppCompatActivity() {
 

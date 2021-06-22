@@ -28,7 +28,7 @@
                 app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewAdvertisement"
+                    android:id="@+id/bannersRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
