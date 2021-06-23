@@ -1,8 +1,7 @@
 package com.example.hummersystemstestapp.presentation
 
 import android.util.Log
-import com.example.hummersystemstestapp.BannerItem
-import com.example.hummersystemstestapp.data.ProductResponse
+import com.example.hummersystemstestapp.data.models.ProductResponse
 import com.example.hummersystemstestapp.domain.ProductsInteractor
 import com.example.hummersystemstestapp.utils.BasePresenter
 import com.jakewharton.rxrelay2.BehaviorRelay
@@ -24,10 +23,15 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
         super.bindView(view)
         subscribeTaskList()
         updateBanners()
+        updateCategories()
     }
 
     private fun updateBanners() {
         getView()?.updateBanners(banners = productsInteractor.getBanners())
+    }
+
+    private fun updateCategories() {
+        getView()?.updateCategories(categories = productsInteractor.getCategories())
     }
 
     private fun loadProducts() {

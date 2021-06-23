@@ -1,7 +1,7 @@
 package com.example.hummersystemstestapp.data.repository
 
 import com.example.hummersystemstestapp.RetrofitHolder
-import com.example.hummersystemstestapp.data.ProductResponse
+import com.example.hummersystemstestapp.data.models.ProductResponse
 import io.reactivex.Single
 
 object ProductsRepository {

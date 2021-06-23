@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import com.example.hummersystemstestapp.BannerItem
+import androidx.recyclerview.widget.LinearSnapHelper
+import com.example.hummersystemstestapp.data.models.BannerItem
 import com.example.hummersystemstestapp.adapters.ProductsAdapter
 import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.adapters.BannersAdapter
-import com.example.hummersystemstestapp.data.ProductResponse
+import com.example.hummersystemstestapp.adapters.CategoriesAdapter
+import com.example.hummersystemstestapp.data.models.CategoryItem
+import com.example.hummersystemstestapp.data.models.ProductResponse
 import com.example.hummersystemstestapp.utils.BaseFragment
 import com.example.hummersystemstestapp.utils.PresentersStorage
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -25,6 +27,7 @@ class ProductsFragment : BaseFragment(), ProductsView {
 
     private lateinit var productsAdapter: ProductsAdapter
     private lateinit var bannersAdapter: BannersAdapter
+    private lateinit var categoriesAdapter: CategoriesAdapter
     private lateinit var presenter: ProductsPresenter
 
     override fun onCreateView(
@@ -38,11 +41,15 @@ class ProductsFragment : BaseFragment(), ProductsView {
         super.onViewCreated(view, savedInstanceState)
         productsAdapter = ProductsAdapter()
         bannersAdapter = BannersAdapter()
+        categoriesAdapter = CategoriesAdapter()
         productsRecyclerView.setHasFixedSize(true)
         productsRecyclerView.adapter = productsAdapter
         bannersRecyclerView.setHasFixedSize(true)
         bannersRecyclerView.adapter = bannersAdapter
-        initSpinner()
+        categoriesRecyclerView.setHasFixedSize(true)
+        categoriesRecyclerView.adapter = categoriesAdapter
+        val snapHelper =LinearSnapHelper()
+        snapHelper.attachToRecyclerView(bannersRecyclerView)
     }
 
     override fun attachPresenter() {
@@ -77,12 +84,7 @@ class ProductsFragment : BaseFragment(), ProductsView {
         bannersAdapter.setData(banners)
     }
 
-    private fun initSpinner() {
-        val spinnerAdapter = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.cities,
-            R.layout.spinner_item
-        )
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+    override fun updateCategories(categories: List<CategoryItem>) {
+        categoriesAdapter.setData(categories)
     }
 }

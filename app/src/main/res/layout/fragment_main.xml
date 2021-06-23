@@ -24,82 +24,31 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bannersRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    tools:listitem="@layout/item_banner" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/bannersRecyclerView"
+                android:id="@+id/categoriesRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_scrollFlags="scroll|enterAlways"
-                tools:listitem="@layout/item_banner" />
-
-            <HorizontalScrollView
-                android:id="@+id/scrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:scrollbars="none"
-                app:tabGravity="fill">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#FFFFFF"
-                    android:orientation="horizontal"
-                    android:paddingTop="10dp">
-
-                    <Button
-                        android:layout_width="88dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/btn_pizza"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="10sp"
-                        app:backgroundTint="@color/white" />
-
-                    <Button
-                        android:layout_width="88dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/btn_combo"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="10sp"
-                        app:backgroundTint="@color/white" />
-
-                    <Button
-                        android:layout_width="88dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/btn_deserts"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="10sp"
-                        app:backgroundTint="@color/white" />
-
-                    <Button
-                        android:layout_width="88dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/btn_drinks"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="10sp"
-                        app:backgroundTint="@color/white" />
-
-                    <Button
-                        android:layout_width="88dp"
-                        android:layout_height="32dp"
-                        android:layout_marginStart="10dp"
-                        android:text="@string/btn_burgers"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black"
-                        android:textSize="10sp"
-                        app:backgroundTint="@color/white" />
-
-                </LinearLayout>
-            </HorizontalScrollView>
+                tools:listitem="@layout/item_category" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView

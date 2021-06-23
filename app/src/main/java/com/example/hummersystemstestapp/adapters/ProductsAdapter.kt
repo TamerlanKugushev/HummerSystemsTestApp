@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hummersystemstestapp.R
-import com.example.hummersystemstestapp.data.ProductResponse
+import com.example.hummersystemstestapp.data.models.ProductResponse
 import com.example.hummersystemstestapp.inflate
 import kotlinx.android.synthetic.main.item_food.view.*
 
@@ -32,7 +32,7 @@ class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogView
             Glide.with(itemView.context)
                 .load(url)
                 .into(itemView.imageViewProduct)
-            itemView.buttonPrice.text = "от ${productResponse.price} р"
+            itemView.textViewPrice.text = "от ${productResponse.price} р"
             itemView.textViewTitleOfProduct.text = productResponse.name
             itemView.textViewDescriptionOfProduct.text = productResponse.description
         }

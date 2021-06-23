@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hummersystemstestapp.BannerItem
+import com.example.hummersystemstestapp.data.models.BannerItem
 import com.example.hummersystemstestapp.R
+import com.example.hummersystemstestapp.inflate
 import kotlinx.android.synthetic.main.item_banner.view.*
 
 class BannersAdapter : RecyclerView.Adapter<BannersAdapter.BannerViewHolder>() {
     private var bannerList = emptyList<BannerItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_banner, parent, false)
+        val view = parent.inflate(R.layout.item_banner)
         return BannerViewHolder(view)
     }
 

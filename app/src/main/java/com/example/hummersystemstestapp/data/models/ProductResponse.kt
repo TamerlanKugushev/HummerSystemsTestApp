@@ -1,4 +1,4 @@
-package com.example.hummersystemstestapp.data
+package com.example.hummersystemstestapp.data.models
 
 import com.google.gson.annotations.SerializedName
 
