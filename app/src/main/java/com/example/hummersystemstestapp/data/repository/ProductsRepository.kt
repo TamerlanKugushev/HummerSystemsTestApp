@@ -1,6 +1,7 @@
-package com.example.hummersystemstestapp.data
+package com.example.hummersystemstestapp.data.repository
 
 import com.example.hummersystemstestapp.RetrofitHolder
+import com.example.hummersystemstestapp.data.ProductResponse
 import io.reactivex.Single
 
 object ProductsRepository {
@@ -8,9 +9,6 @@ object ProductsRepository {
     private val apiService = RetrofitHolder.apiService
 
     fun getProducts(): Single<List<ProductResponse>> {
-        return apiService
-            .getProducts(
-                RetrofitHolder.PAGE
-            )
+        return apiService.getProducts(RetrofitHolder.PAGE)
     }
 }

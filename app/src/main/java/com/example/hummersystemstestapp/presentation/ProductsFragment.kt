@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import com.example.hummersystemstestapp.BannerItem
 import com.example.hummersystemstestapp.adapters.ProductsAdapter
 import com.example.hummersystemstestapp.R
-import com.example.hummersystemstestapp.adapters.BannersAdapters
+import com.example.hummersystemstestapp.adapters.BannersAdapter
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.example.hummersystemstestapp.utils.BaseFragment
 import com.example.hummersystemstestapp.utils.PresentersStorage
@@ -24,35 +24,24 @@ class ProductsFragment : BaseFragment(), ProductsView {
     }
 
     private lateinit var productsAdapter: ProductsAdapter
-    private lateinit var bannersAdapters: BannersAdapters
+    private lateinit var bannersAdapter: BannersAdapter
     private lateinit var presenter: ProductsPresenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         productsAdapter = ProductsAdapter()
-        bannersAdapters = BannersAdapters()
+        bannersAdapter = BannersAdapter()
         productsRecyclerView.setHasFixedSize(true)
         productsRecyclerView.adapter = productsAdapter
         bannersRecyclerView.setHasFixedSize(true)
-        bannersRecyclerView.adapter = bannersAdapters
-        val banners = listOf(
-            BannerItem(R.drawable.banner),
-            BannerItem(R.drawable.banner),
-            BannerItem(R.drawable.banner),
-            BannerItem(R.drawable.banner),
-            BannerItem(R.drawable.banner)
-        )
-        bannersAdapters.setData(banners)
-
-
+        bannersRecyclerView.adapter = bannersAdapter
         initSpinner()
     }
 
@@ -82,6 +71,10 @@ class ProductsFragment : BaseFragment(), ProductsView {
     override fun updateProducts(products: List<ProductResponse>) {
         val listCopy = products.toMutableList().map { it.copy() }
         productsAdapter.submitList(listCopy)
+    }
+
+    override fun updateBanners(banners: List<BannerItem>) {
+        bannersAdapter.setData(banners)
     }
 
     private fun initSpinner() {

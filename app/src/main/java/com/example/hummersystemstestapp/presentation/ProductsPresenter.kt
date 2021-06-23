@@ -1,6 +1,7 @@
 package com.example.hummersystemstestapp.presentation
 
 import android.util.Log
+import com.example.hummersystemstestapp.BannerItem
 import com.example.hummersystemstestapp.data.ProductResponse
 import com.example.hummersystemstestapp.domain.ProductsInteractor
 import com.example.hummersystemstestapp.utils.BasePresenter
@@ -22,6 +23,11 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
     override fun bindView(view: ProductsView) {
         super.bindView(view)
         subscribeTaskList()
+        updateBanners()
+    }
+
+    private fun updateBanners() {
+        getView()?.updateBanners(banners = productsInteractor.getBanners())
     }
 
     private fun loadProducts() {

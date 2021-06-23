@@ -5,23 +5,23 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductResponse(
     @SerializedName("id")
-    var id: Int,
+    val id: Int,
 
     @SerializedName("name")
-    var name: String,
+    val name: String,
 
     @SerializedName("image")
-    var image: String,
+    val image: String,
 
     @SerializedName("price")
-    var price: Int,
+    val price: Int,
 
     @SerializedName("oldPrice")
-    var oldPrice: Int,
+    val oldPrice: Int,
 
     @SerializedName("description")
-    var description: String,
+    val description: String,
 
     @SerializedName("isFavorite")
-    var isFavorite: Any?
+    val isFavorite: Any?
 )

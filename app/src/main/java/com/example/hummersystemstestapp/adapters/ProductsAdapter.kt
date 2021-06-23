@@ -1,15 +1,15 @@
 package com.example.hummersystemstestapp.adapters
 
 import android.annotation.SuppressLint
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.data.ProductResponse
-import com.squareup.picasso.Picasso
+import com.example.hummersystemstestapp.inflate
 import kotlinx.android.synthetic.main.item_food.view.*
 
 class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogViewHolder>(
@@ -17,20 +17,19 @@ class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogView
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_food, parent, false)
+        val view = parent.inflate(R.layout.item_food)
         return CatalogViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        holder.bind(currentItem)
+        holder.bind(getItem(position))
     }
 
     class CatalogViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("SetTextI18n")
         fun bind(productResponse: ProductResponse) {
             val url = productResponse.image
-            Picasso.with(itemView.context)
+            Glide.with(itemView.context)
                 .load(url)
                 .into(itemView.imageViewProduct)
             itemView.buttonPrice.text = "от ${productResponse.price} р"
@@ -45,11 +44,8 @@ class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogView
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(
-            oldItem: ProductResponse,
-            newItem: ProductResponse
-        ): Boolean {
-            return oldItem.id == newItem.id
+        override fun areContentsTheSame(oldItem: ProductResponse, newItem: ProductResponse): Boolean {
+            return oldItem == newItem
         }
     }
 }

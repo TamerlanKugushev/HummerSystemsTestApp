@@ -8,7 +8,7 @@ import com.example.hummersystemstestapp.BannerItem
 import com.example.hummersystemstestapp.R
 import kotlinx.android.synthetic.main.item_banner.view.*
 
-class BannersAdapters : RecyclerView.Adapter<BannersAdapters.BannerViewHolder>() {
+class BannersAdapter : RecyclerView.Adapter<BannersAdapter.BannerViewHolder>() {
     private var bannerList = emptyList<BannerItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {

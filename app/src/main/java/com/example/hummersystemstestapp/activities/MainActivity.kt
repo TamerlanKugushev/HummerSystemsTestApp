@@ -1,11 +1,13 @@
-package com.example.hummersystemstestapp
+package com.example.hummersystemstestapp.activities
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hummersystemstestapp.BaseApplication
+import com.example.hummersystemstestapp.R
+import com.example.hummersystemstestapp.Screens
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
-import kotlinx.android.synthetic.main.toolbar_menu.*
 
 class MainActivity : AppCompatActivity() {
 

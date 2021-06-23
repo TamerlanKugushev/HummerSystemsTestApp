@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("39")
+    @GET("category/39")
     fun getProducts(@Query("page") page: Int): Single<List<ProductResponse>>
 
 }

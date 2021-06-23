@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitHolder {
 
-    private const val BASE_URL = "https://api.gambit-app.ru/category/"
+    private const val BASE_URL = "https://api.gambit-app.ru/"
     const val PAGE = 1
 
     var apiService: ApiService =
