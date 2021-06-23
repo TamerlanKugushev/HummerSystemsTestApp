@@ -14,12 +14,13 @@ object Repository {
     )
 
     private val mockCategories= listOf(
+        CategoryItem("Морские продукты"),
+        CategoryItem("Стейки"),
         CategoryItem("Пиццы"),
         CategoryItem("Бургеры"),
-        CategoryItem("Суши"),
-        CategoryItem("Напитки"),
-        CategoryItem("Десерты"),
-        CategoryItem("Комбо")
+        CategoryItem("Завтраки"),
+        CategoryItem("Супы"),
+        CategoryItem("Каши"),
     )
 
     fun getBanners(): List<BannerItem> {

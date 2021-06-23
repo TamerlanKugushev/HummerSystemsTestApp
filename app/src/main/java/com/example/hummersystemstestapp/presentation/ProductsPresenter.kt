@@ -35,7 +35,7 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
     }
 
     private fun loadProducts() {
-        productsInteractor.getProducts()
+        productsInteractor.getSeaProducts()
             .subscribeOn(Schedulers.io())
             .subscribeBy(
                 onSuccess = {

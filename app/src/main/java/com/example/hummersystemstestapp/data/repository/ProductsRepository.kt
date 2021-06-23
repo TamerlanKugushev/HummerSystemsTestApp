@@ -8,7 +8,38 @@ object ProductsRepository {
 
     private val apiService = RetrofitHolder.apiService
 
-    fun getProducts(): Single<List<ProductResponse>> {
-        return apiService.getProducts(RetrofitHolder.PAGE)
+    // Морские продукты
+    fun getSeaProducts(): Single<List<ProductResponse>> {
+        return apiService.getProducts(2,RetrofitHolder.PAGE)
+    }
+
+    // Стейки
+    fun getSteaks(): Single<List<ProductResponse>> {
+        return apiService.getProducts(7,RetrofitHolder.PAGE)
+    }
+
+    // Пиццы
+    fun getPizzas(): Single<List<ProductResponse>> {
+        return apiService.getProducts(9, RetrofitHolder.PAGE)
+    }
+
+    // Бургеры
+    fun getBurgers(): Single<List<ProductResponse>> {
+        return apiService.getProducts(30, RetrofitHolder.PAGE)
+    }
+
+    // Завтраки
+    fun getBreakfasts(): Single<List<ProductResponse>> {
+        return apiService.getProducts(32, RetrofitHolder.PAGE)
+    }
+
+    // Супы
+    fun getSoups(): Single<List<ProductResponse>> {
+        return apiService.getProducts(33, RetrofitHolder.PAGE)
+    }
+
+    // Каши
+    fun getPorridges(): Single<List<ProductResponse>> {
+        return apiService.getProducts(39, RetrofitHolder.PAGE)
     }
 }

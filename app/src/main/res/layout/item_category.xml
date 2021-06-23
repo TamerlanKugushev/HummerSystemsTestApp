@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/textViewCategoryName"
     android:layout_width="88dp"
-    android:layout_height="32dp"
+    android:layout_height="wrap_content"
     android:background="@drawable/ic_category_bg"
     android:fontFamily="@font/sf_ui_display_thin"
     android:gravity="center"

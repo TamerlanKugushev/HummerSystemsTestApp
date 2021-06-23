@@ -9,8 +9,32 @@ import io.reactivex.Single
 
 class ProductsInteractor {
 
-    fun getProducts(): Single<List<ProductResponse>> {
-        return ProductsRepository.getProducts()
+    fun getSeaProducts(): Single<List<ProductResponse>> {
+        return ProductsRepository.getSeaProducts()
+    }
+
+    fun getSteaks(): Single<List<ProductResponse>> {
+        return ProductsRepository.getSteaks()
+    }
+
+    fun getPizzas(): Single<List<ProductResponse>> {
+        return ProductsRepository.getPizzas()
+    }
+
+    fun getBurgers(): Single<List<ProductResponse>> {
+        return ProductsRepository.getBurgers()
+    }
+
+    fun getBreakfasts(): Single<List<ProductResponse>> {
+        return ProductsRepository.getSeaProducts()
+    }
+
+    fun getSoups(): Single<List<ProductResponse>> {
+        return ProductsRepository.getSoups()
+    }
+
+    fun getPorridges(): Single<List<ProductResponse>> {
+        return ProductsRepository.getPorridges()
     }
 
     fun getBanners(): List<BannerItem> {
