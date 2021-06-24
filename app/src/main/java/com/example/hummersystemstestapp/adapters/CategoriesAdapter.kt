@@ -21,7 +21,7 @@ class CategoriesAdapter(onCategoryClickListener: OnCategoryClickListener) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = parent.inflate(R.layout.item_category)
-        return CategoryViewHolder(view,onCategoryClickListener)
+        return CategoryViewHolder(view, onCategoryClickListener)
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
@@ -40,7 +40,7 @@ class CategoriesAdapter(onCategoryClickListener: OnCategoryClickListener) :
     class CategoryViewHolder(itemView: View, onCategoryClickListener: OnCategoryClickListener?) :
         RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-        var onCategoryClickListener: OnCategoryClickListener? = null
+        private var onCategoryClickListener: OnCategoryClickListener? = null
 
         init {
             itemView.setOnClickListener(this)
