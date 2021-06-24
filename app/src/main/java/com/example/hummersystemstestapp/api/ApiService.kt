@@ -1,4 +1,4 @@
-package com.example.hummersystemstestapp
+package com.example.hummersystemstestapp.api
 
 import com.example.hummersystemstestapp.data.models.ProductResponse
 import io.reactivex.Single

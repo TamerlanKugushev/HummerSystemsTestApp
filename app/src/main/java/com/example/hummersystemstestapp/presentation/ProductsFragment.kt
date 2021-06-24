@@ -17,7 +17,7 @@ import com.example.hummersystemstestapp.utils.PresentersStorage
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
-class ProductsFragment : BaseFragment(), ProductsView {
+class ProductsFragment : BaseFragment(), ProductsView, CategoriesAdapter.OnCategoryClickListener {
 
     companion object {
         fun newInstance(): ProductsFragment {
@@ -41,14 +41,10 @@ class ProductsFragment : BaseFragment(), ProductsView {
         super.onViewCreated(view, savedInstanceState)
         productsAdapter = ProductsAdapter()
         bannersAdapter = BannersAdapter()
-        categoriesAdapter = CategoriesAdapter()
-        productsRecyclerView.setHasFixedSize(true)
-        productsRecyclerView.adapter = productsAdapter
-        bannersRecyclerView.setHasFixedSize(true)
-        bannersRecyclerView.adapter = bannersAdapter
-        categoriesRecyclerView.setHasFixedSize(true)
-        categoriesRecyclerView.adapter = categoriesAdapter
-        val snapHelper =LinearSnapHelper()
+        categoriesAdapter = CategoriesAdapter(this)
+        setRecyclerAdapters()
+        setHasFixedSizeRecycler()
+        val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(bannersRecyclerView)
     }
 
@@ -86,5 +82,21 @@ class ProductsFragment : BaseFragment(), ProductsView {
 
     override fun updateCategories(categories: List<CategoryItem>) {
         categoriesAdapter.setData(categories)
+    }
+
+    override fun onCategoryClick(position: Int) {
+        presenter.updateRecyclerView(position)
+    }
+
+    private fun setRecyclerAdapters() {
+        productsRecyclerView.adapter = productsAdapter
+        bannersRecyclerView.adapter = bannersAdapter
+        categoriesRecyclerView.adapter = categoriesAdapter
+    }
+
+    private fun setHasFixedSizeRecycler() {
+        productsRecyclerView.setHasFixedSize(true)
+        bannersRecyclerView.setHasFixedSize(true)
+        categoriesRecyclerView.setHasFixedSize(true)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hummersystemstestapp
+package com.example.hummersystemstestapp.extensions
 
 import android.view.LayoutInflater
 import android.view.View

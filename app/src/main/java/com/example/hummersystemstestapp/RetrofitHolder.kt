@@ -1,5 +1,6 @@
 package com.example.hummersystemstestapp
 
+import com.example.hummersystemstestapp.api.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

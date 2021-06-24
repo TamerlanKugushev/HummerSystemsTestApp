@@ -1,12 +1,11 @@
 package com.example.hummersystemstestapp.adapters
 
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hummersystemstestapp.data.models.BannerItem
 import com.example.hummersystemstestapp.R
-import com.example.hummersystemstestapp.inflate
+import com.example.hummersystemstestapp.extensions.inflate
 import kotlinx.android.synthetic.main.item_banner.view.*
 
 class BannersAdapter : RecyclerView.Adapter<BannersAdapter.BannerViewHolder>() {

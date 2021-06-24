@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.data.models.ProductResponse
-import com.example.hummersystemstestapp.inflate
+import com.example.hummersystemstestapp.extensions.inflate
 import kotlinx.android.synthetic.main.item_food.view.*
 
 class ProductsAdapter : ListAdapter<ProductResponse, ProductsAdapter.CatalogViewHolder>(

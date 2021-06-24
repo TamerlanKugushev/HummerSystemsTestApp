@@ -23,6 +23,31 @@ object ProductsRepository {
         return apiService.getProducts(9, RetrofitHolder.PAGE)
     }
 
+    // Фетуччини
+    fun getFettuccine(): Single<List<ProductResponse>> {
+        return apiService.getProducts(10,RetrofitHolder.PAGE)
+    }
+
+    // Соусы
+    fun getSauces(): Single<List<ProductResponse>> {
+        return apiService.getProducts(13,RetrofitHolder.PAGE)
+    }
+
+    // Соленья
+    fun getPickles(): Single<List<ProductResponse>> {
+        return apiService.getProducts(14,RetrofitHolder.PAGE)
+    }
+
+    // Шашлыки
+    fun getKebabs(): Single<List<ProductResponse>> {
+        return apiService.getProducts(15,RetrofitHolder.PAGE)
+    }
+
+    // Напитки
+    fun getDrinks(): Single<List<ProductResponse>> {
+        return apiService.getProducts(16,RetrofitHolder.PAGE)
+    }
+
     // Бургеры
     fun getBurgers(): Single<List<ProductResponse>> {
         return apiService.getProducts(30, RetrofitHolder.PAGE)

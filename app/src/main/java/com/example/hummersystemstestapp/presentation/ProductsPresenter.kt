@@ -26,6 +26,19 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
         updateCategories()
     }
 
+    fun updateRecyclerView(position: Int) {
+        productsInteractor.gatCategoryProducts(position)
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
+                onSuccess = {
+                    getView()?.updateProducts(it)
+                },
+                onError = {
+                    Log.e("PRODUCT", it.toString())
+                }
+            ).addTo(viewCompositeDisposable)
+    }
+
     private fun updateBanners() {
         getView()?.updateBanners(banners = productsInteractor.getBanners())
     }
