@@ -14,6 +14,8 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
 
     private val productsInteractor = ProductsInteractor()
     private val productsSubject = BehaviorRelay.create<List<ProductResponse>>()
+    private val categories = productsInteractor.getCategories()
+    private val banners = productsInteractor.getBanners()
 
     init {
         loadProducts()
@@ -26,12 +28,14 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
         updateCategories()
     }
 
-    fun updateRecyclerView(position: Int) {
+    fun updateProducts(position: Int) {
         productsInteractor.gatCategoryProducts(position)
             .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
                 onSuccess = {
                     getView()?.updateProducts(it)
+                    updateCategories(position)
                 },
                 onError = {
                     Log.e("PRODUCT", it.toString())
@@ -40,11 +44,13 @@ class ProductsPresenter : BasePresenter<ProductsView>() {
     }
 
     private fun updateBanners() {
-        getView()?.updateBanners(banners = productsInteractor.getBanners())
+        getView()?.updateBanners(banners)
     }
 
-    private fun updateCategories() {
-        getView()?.updateCategories(categories = productsInteractor.getCategories())
+    private fun updateCategories(position: Int = 0) {
+        categories.forEach { it.isPressed = false }
+        categories[position].isPressed = true
+        getView()?.updateCategories(categories)
     }
 
     private fun loadProducts() {

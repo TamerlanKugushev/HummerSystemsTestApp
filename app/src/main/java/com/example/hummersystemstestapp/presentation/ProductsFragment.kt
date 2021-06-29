@@ -17,7 +17,7 @@ import com.example.hummersystemstestapp.utils.PresentersStorage
 import kotlinx.android.synthetic.main.fragment_main.*
 
 
-class ProductsFragment : BaseFragment(), ProductsView, CategoriesAdapter.OnCategoryClickListener {
+class ProductsFragment : BaseFragment(), ProductsView {
 
     companion object {
         fun newInstance(): ProductsFragment {
@@ -41,7 +41,7 @@ class ProductsFragment : BaseFragment(), ProductsView, CategoriesAdapter.OnCateg
         super.onViewCreated(view, savedInstanceState)
         productsAdapter = ProductsAdapter()
         bannersAdapter = BannersAdapter()
-        categoriesAdapter = CategoriesAdapter(this)
+        categoriesAdapter = CategoriesAdapter(onCategoryClick = ::onCategoryClick)
         setRecyclerAdapters()
         setHasFixedSizeRecycler()
         val snapHelper = LinearSnapHelper()
@@ -84,8 +84,8 @@ class ProductsFragment : BaseFragment(), ProductsView, CategoriesAdapter.OnCateg
         categoriesAdapter.setData(categories)
     }
 
-    override fun onCategoryClick(position: Int) {
-        presenter.updateRecyclerView(position)
+    private fun onCategoryClick(position: Int) {
+        presenter.updateProducts(position)
     }
 
     private fun setRecyclerAdapters() {

@@ -2,26 +2,23 @@ package com.example.hummersystemstestapp.adapters
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.ColorRes
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide.init
 import com.example.hummersystemstestapp.R
 import com.example.hummersystemstestapp.data.models.CategoryItem
 import com.example.hummersystemstestapp.extensions.inflate
 import kotlinx.android.synthetic.main.item_category.view.*
 
-class CategoriesAdapter(onCategoryClickListener: OnCategoryClickListener) :
-    RecyclerView.Adapter<CategoriesAdapter.CategoryViewHolder>() {
+class CategoriesAdapter(
+    private val onCategoryClick: (position: Int) -> Unit
+) : RecyclerView.Adapter<CategoryViewHolder>() {
 
     private var categoryList = emptyList<CategoryItem>()
-    private var onCategoryClickListener: OnCategoryClickListener? = null
-
-    init {
-        this.onCategoryClickListener = onCategoryClickListener
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = parent.inflate(R.layout.item_category)
-        return CategoryViewHolder(view, onCategoryClickListener)
+        return CategoryViewHolder(view, onCategoryClick)
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
@@ -33,30 +30,39 @@ class CategoriesAdapter(onCategoryClickListener: OnCategoryClickListener) :
         return categoryList.size
     }
 
-    fun setData(bannerList: List<CategoryItem>) {
-        this.categoryList = bannerList
+    fun setData(categories: List<CategoryItem>) {
+        this.categoryList = categories
+        notifyDataSetChanged()
     }
 
-    class CategoryViewHolder(itemView: View, onCategoryClickListener: OnCategoryClickListener?) :
-        RecyclerView.ViewHolder(itemView), View.OnClickListener {
-
-        private var onCategoryClickListener: OnCategoryClickListener? = null
-
-        init {
-            itemView.setOnClickListener(this)
-            this.onCategoryClickListener = onCategoryClickListener
-        }
-
-        fun bind(categoryItem: CategoryItem) {
-            itemView.textViewCategoryName.text = categoryItem.name
-        }
-
-        override fun onClick(v: View?) {
-            onCategoryClickListener?.onCategoryClick(adapterPosition)
-        }
-    }
-
-    interface OnCategoryClickListener {
-        fun onCategoryClick(position: Int)
-    }
 }
+
+class CategoryViewHolder(
+    itemView: View,
+    onCategoryClick: (position: Int) -> Unit
+) : RecyclerView.ViewHolder(itemView) {
+
+    init {
+        itemView.setOnClickListener {
+            onCategoryClick.invoke(adapterPosition)
+        }
+    }
+
+    fun bind(categoryItem: CategoryItem) {
+        itemView.textViewCategoryName.text = categoryItem.name
+        if (categoryItem.isPressed) {
+            itemView.textViewCategoryName.setBackgroundResource(R.drawable.ic_category_bg_active)
+            itemView.textViewCategoryName.setTextColor(getColor(R.color.category_btn_txt_active))
+        } else {
+            itemView.textViewCategoryName.setBackgroundResource(R.drawable.ic_category_bg_passive)
+            itemView.textViewCategoryName.setTextColor(getColor(R.color.category_btn_txt_passive))
+        }
+    }
+
+
+    private fun getColor(@ColorRes id: Int): Int {
+        return ResourcesCompat.getColor(itemView.resources, id, itemView.context.theme)
+    }
+
+}
+
